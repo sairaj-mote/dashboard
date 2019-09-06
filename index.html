@@ -10,9 +10,9 @@
         <meta name="description" content="this an webapp for data analysis">
         <meta name="viewport" content="width=device-width, initial-scale=1">
         <link href="https://fonts.googleapis.com/css?family=Roboto&display=swap" rel="stylesheet">
-        <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
         <link rel="stylesheet" href="css/main.css">
         <script src="https://cdn.jsdelivr.net/npm/chart.js@2.8.0/dist/Chart.min.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/darkmode-js@1.4.0/lib/darkmode-js.min.js"></script>
     
     </head>
     <body>
@@ -20,61 +20,51 @@
             <p class="browsehappy">You are using an <strong>outdated</strong> browser. Please <a href="#">upgrade your browser</a> to improve your experience.</p>
         <![endif]-->
         <header class="navbar">
-            <div class="links">
-                    <a href="#">+Add User</a>
-                    <a href="#">User Preferences</a>
-                    <a href="#">Settings</a>
-            </div>
+                <img src="svg/menu.svg" alt="menu icon" class="icon menu" onclick="reveal()">
+            <h3>Dashboard</h3>
             <div class="search">
-                <input type="search" class="searchBar"/>
-                <i class="material-icons">search</i>
+                <input type="search" placeholder="Search for something" alt="search for something" class="searchBar"/>
+                <img src="svg/search.svg" style="filter: invert(0.6);height: 1.6rem;width: 1.6rem;align-self: center;margin-left: 4px">
             </div>
+            <!--<input type="checkbox" id="switch" onclick="toggle()" /><label for="switch">Toggle</label>-->
+            <div class="spacer"></div>
             <div class="profileP">
-                <img style="background-color: white;border-radius:2rem;height:2rem;width:2rem;" src="images/sea.webp"/>
-                Vincent Chase
-                <i class="material-icons">arrow_drop_down</i>
+                <img class="hide-large" src="svg/search.svg" style="filter: invert(0.6);height: 1.6rem;width: 1.6rem;align-self: center;margin-right: 2rem">
+                <img style="border-radius:2rem;height:2rem;width:2rem;" src="images/sea.webp" alt="profile picture"/>    
+                <h4 style="display: inline" class="hide">Sairaj Mote</h4>
+                <img src="svg/settings.svg" class="icon">
             </div>
         </header>
-        
+        <div class="cover" onclick="hide()"></div>
+        <div id="sidenav">
+                <img src="svg/dashboard.svg" class="icon hightlight" alt="dashboard icon">
+                <img src="svg/person.svg" class="icon" alt="person icon">
+                <img src="svg/calender.svg" class="icon" alt="calender icon">
+                <img src="svg/file.svg" class="icon" alt="file icon">
+                <img src="svg/message.svg" class="icon" alt="message icon">
+        </div>
         <section class="main">
-                <div id="sidenav">
-                        <i class="material-icons hightlight">dashboard</i>
-                        <i class="material-icons">person</i>
-                        <i class="material-icons">edit</i>
-                        <i class="material-icons">calendar_today</i>
-                        <i class="material-icons">insert_drive_file</i>
-                        <i class="material-icons">message</i>
-                        <i class="material-icons">trending_up</i>
+            <div id="linechart" class="card">
+                <p id="lname">Player Statistics</p>
+                <canvas id="myChart"></canvas>
+            </div>
+            <div class="right">
+                <div id="doughnut" class="card">
+                    <span class="percentage">60%</span>
+                    <p id="dname">Player Statistics</p>
+                    <div>
+                        <canvas height="200" id="mydo"></canvas>
+                    </div>
                 </div>
-                <div id="titlebar">
-                    <div style="position: absolute;transform:rotate(45deg);z-index: 1;top: 10px;left:55px;background-color:#EC4863;height: 40px;width: 40px"></div>
-                    <span style="position: relative;z-index:2">Dashboard</span>
+                <div id="barchart" class="card">
+                        <div>
+                            <canvas height="200" id="mybar"></canvas>
+                        </div>
                 </div>
-                        <p id="lname">Active Player</p>
-                        <div id="linechart">
-                                <canvas id="myChart"></canvas>
-                            </div>
-                            <p id="dname">Player Statistics</p>
-                            <div id="doughnut">
-                                    <div style="position: relative">
-                                        <canvas height="200" id="mydo1"></canvas>
-                                    </div>
-                                    <div  style="position: relative">
-                                        <canvas height="200" id="mydo2"></canvas>
-                                    </div>
-                                </div>
-                                <div id="barchart">
-                                    <div>
-                                        <canvas height="400" id="mybar1"></canvas>
-                                    </div>
-                                    <div>
-                                        <canvas height="400" id="mybar2"></canvas>
-                                    </div>
-                                    <div>
-                                        <canvas height="400" id="mybar3"></canvas>
-                                    </div>
-                                </div>
+            </div>
+           
         </section>
         <script src="main.js" async defer></script>
+
     </body>
 </html>
